@@ -1,7 +1,14 @@
+import {
+  PayPalButtons,
+  PayPalButtonsComponentProps,
+  SCRIPT_LOADING_STATE,
+  usePayPalScriptReducer,
+} from '@paypal/react-paypal-js'
 import { useContext, useEffect } from 'react'
 import { Button, Card, Col, ListGroup, Row } from 'react-bootstrap'
 import { Helmet } from 'react-helmet-async'
 import { Link, useParams } from 'react-router-dom'
+import { toast } from 'react-toastify'
 import LoadingBox from '../components/LoadingBox'
 import MessageBox from '../components/MessageBox'
 import {
@@ -12,13 +19,6 @@ import {
 import { Store } from '../Store'
 import { ApiError } from '../types/ApiError'
 import { getError } from '../utils'
-import { toast } from 'react-toastify'
-import {
-  PayPalButtons,
-  PayPalButtonsComponentProps,
-  SCRIPT_LOADING_STATE,
-  usePayPalScriptReducer,
-} from '@paypal/react-paypal-js'
 
 export default function OrderPage() {
   const { state } = useContext(Store)
@@ -184,7 +184,6 @@ export default function OrderPage() {
                     <Col>${order.itemsPrice.toFixed(2)}</Col>
                   </Row>
                 </ListGroup.Item>
-
                 <ListGroup.Item>
                   <Row>
                     <Col>Shipping</Col>

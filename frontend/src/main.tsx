@@ -49,14 +49,12 @@ const router = createBrowserRouter(
 )
 
 const queryClient = new QueryClient()
-ReactDOM.createRoot(document.getElementById('root')!).render(
+
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <StoreProvider>
       <PayPalScriptProvider
-        options={{
-          'client-id':
-            'AXx413lhBz9aGqCGVCC_Orzmde41aCHVxS0yvH-ITyjwa97kbb3HVsqeYWzN3ey9LzFesreKXOjhIseI',
-        }}
+        options={{ 'clienti-Id': 'sb' }}
         deferLoading={true}
       >
         <HelmetProvider>
