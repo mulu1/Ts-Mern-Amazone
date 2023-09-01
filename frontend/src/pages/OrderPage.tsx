@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   PayPalButtons,
   PayPalButtonsComponentProps,
@@ -21,8 +22,8 @@ import { ApiError } from '../types/ApiError'
 import { getError } from '../utils'
 
 export default function OrderPage() {
-  const { state } = useContext(Store)
-  const { userInfo? } = state
+  useContext(Store)
+
   const params = useParams()
   const { id: orderId } = params
 
@@ -62,11 +63,11 @@ export default function OrderPage() {
       }
       loadPaypalScript()
     }
-  }, [paypalConfig])
+  }, [paypalConfig, paypalDispatch])
 
   const paypalbuttonTransactionProps: PayPalButtonsComponentProps = {
     style: { layout: 'vertical' },
-    createOrder(data, actions) {
+    createOrder(_data, actions) {
       return actions.order
         .create({
           purchase_units: [
@@ -81,7 +82,7 @@ export default function OrderPage() {
           return orderID
         })
     },
-    onApprove(data, actions) {
+    onApprove(_data, actions) {
       return actions.order!.capture().then(async (details) => {
         try {
           await payOrder({ orderId: orderId!, ...details })

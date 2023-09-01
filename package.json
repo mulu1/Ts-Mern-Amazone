@@ -33,5 +33,6 @@
   "bugs": {
     "url": "https://github.com/mulu1/Ts-Mern-Amazone/issues"
   },
-  "homepage": "https://github.com/mulu1/Ts-Mern-Amazone#readme"
+  "homepage": "https://github.com/mulu1/Ts-Mern-Amazone#readme",
+  "devDependencies": {}
 }
