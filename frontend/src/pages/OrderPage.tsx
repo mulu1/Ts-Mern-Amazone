@@ -22,8 +22,7 @@ import { getError } from '../utils'
 
 export default function OrderPage() {
   const { state } = useContext(Store)
-  const { userInfo } = state
-
+  const { userInfo? } = state
   const params = useParams()
   const { id: orderId } = params
 
